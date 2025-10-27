@@ -1,0 +1,41 @@
+services:
+  chrome:
+    build:
+      context: .
+      dockerfile: Dockerfile.chrome-vnc
+    container_name: chromium-vnc
+    ports:
+      - "5800:5800"  # noVNC web interface
+      - "5900:5900"  # VNC port
+      - "9222:9222"  # DevTools/Remote debugging
+    volumes:
+      - chrome-data:/config:rw
+    environment:
+      - USER_ID=1000
+      - GROUP_ID=1000
+      - VNC_PASSWORD=vncpassword
+      - DISPLAY_WIDTH=1920
+      - DISPLAY_HEIGHT=1080
+      - WEB_LISTENING_PORT=5800
+      - VNC_LISTENING_PORT=5900
+      - KEEP_APP_RUNNING=1
+      - DARK_MODE=0
+    shm_size: 2g
+    networks:
+      - chrome-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5800/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+
+volumes:
+  chrome-data:
+    driver: local
+
+networks:
+  chrome-network:
+    driver: bridge
