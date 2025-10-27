@@ -1,5 +1,5 @@
 USR=vital987
-NAME=chrome-novnc
+NAME= chrome-vnc
 TAG=latest
 IMG=${USR}/${NAME}:${TAG}
 

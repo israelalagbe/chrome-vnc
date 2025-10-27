@@ -1,6 +1,6 @@
 services:
-  chrome-novnc:
-    container_name: chrome-novnc
+   chrome-vnc:
+    container_name:  chrome-vnc
     build:
       context: .
       dockerfile: Dockerfile

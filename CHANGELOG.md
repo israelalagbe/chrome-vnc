@@ -8,7 +8,7 @@
 
 ### Fixed
 
-- issue [#9](https://github.com/vital987/chrome-novnc/issues/9)
+- issue [#9](https://github.com/vital987/ chrome-vnc/issues/9)
 
 ## 0.12.0 - 2024-05-02
 
@@ -19,7 +19,7 @@
 - Makefile
 - docker-compose.yml
 - --disable-gpu flag to chrome
-- missing python requests module required for self-ping.py ([#7](https://github.com/vital987/chrome-novnc/issues/7) fix)
+- missing python requests module required for self-ping.py ([#7](https://github.com/vital987/ chrome-vnc/issues/7) fix)
 - VNC_SHARED to app.json
 
 ### Changed
@@ -32,5 +32,5 @@
 
 ### Fixed
 
-- issue [#7](https://github.com/vital987/chrome-novnc/issues/7)
+- issue [#7](https://github.com/vital987/ chrome-vnc/issues/7)
 
