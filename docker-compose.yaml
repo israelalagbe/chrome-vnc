@@ -2,7 +2,7 @@ services:
   chrome:
     build:
       context: .
-      dockerfile: Dockerfile.chrome-vnc
+      dockerfile: Dockerfile
     container_name: chromium-vnc
     ports:
       - "5800:5800"  # noVNC web interface
