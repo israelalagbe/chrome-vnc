@@ -44,7 +44,7 @@ RUN	apk update && \
 	rm -rf /var/cache/apk/* /tmp/*
 
 # Expose NoVNC, Chrome Remote Debugging, and Express Proxy ports
-EXPOSE $PORT $DEBUG_PORT 3000
+EXPOSE $PORT $DEBUG_PORT 30001
 
 ENTRYPOINT ["supervisord", "-l", "/var/log/supervisord.log", "-c"]
 
