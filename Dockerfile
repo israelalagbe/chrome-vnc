@@ -30,9 +30,11 @@ ENV	VNC_PASS="CHANGE_IT" \
 COPY assets/ /
 
 RUN	apk update && \
-	apk add --no-cache tzdata ca-certificates supervisor curl wget openssl bash python3 py3-requests sed unzip xvfb x11vnc websockify openbox chromium nss alsa-lib font-noto font-noto-cjk && \
+	apk add --no-cache tzdata ca-certificates supervisor curl wget openssl bash python3 py3-requests sed unzip xvfb x11vnc websockify openbox chromium nss alsa-lib font-noto font-noto-cjk nodejs npm && \
 # noVNC SSL certificate
 	openssl req -new -newkey rsa:4096 -days 36500 -nodes -x509 -subj "/C=IN/O=Dis/CN=www.google.com" -keyout /etc/ssl/novnc.key -out /etc/ssl/novnc.cert > /dev/null 2>&1 && \
+# Install Node.js dependencies for Express proxy
+	cd /server && npm install && \
 # TimeZone
 	cp /usr/share/zoneinfo/$TZ /etc/localtime && \
 	echo $TZ > /etc/timezone && \
@@ -40,8 +42,8 @@ RUN	apk update && \
 	apk del build-base curl wget unzip tzdata openssl && \
 	rm -rf /var/cache/apk/* /tmp/*
 
-# Expose NoVNC and Chrome Remote Debugging ports
-EXPOSE $PORT $DEBUG_PORT
+# Expose NoVNC, Chrome Remote Debugging, and Express Proxy ports
+EXPOSE $PORT $DEBUG_PORT 3000
 
 ENTRYPOINT ["supervisord", "-l", "/var/log/supervisord.log", "-c"]
 

@@ -1,10 +1,6 @@
 # Chromium with NoVNC
 
 ## Installation
-- ### Heroku
-    [![Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/vital987/ chrome-vnc)
-
-
 - ### Manual
     ```sh
     docker run \

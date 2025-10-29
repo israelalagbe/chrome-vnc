@@ -4,15 +4,19 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    network_mode: "host"
+    # network_mode: "host"
     environment:
       - VNC_PASS=${VNC_PASS-CHANGE_IT}
       - VNC_TITLE=${VNC_TITLE-Chromium}
       - VNC_SHARED=${VNC_SHARED-false}
       - VNC_RESOLUTION=${VNC_RESOLUTION-1280x720}
       - PORT=18080
-      - DEBUG_PORT=${DEBUG_PORT-19222}
+      - DEBUG_PORT=9222
+    ports:
+      - "18080:18080"
+      - "30001:3000"
     # volumes:
     #   - ./assets/config:/config
     #   - ./assets/opt:/opt
+    #   - ./assets/server:/server
     restart: always
