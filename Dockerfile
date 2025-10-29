@@ -26,7 +26,7 @@ ENV	VNC_PASS=${VNC_PASS} \
 	LANG=en_US.UTF-8 \
 	LANGUAGE=en_US.UTF-8 \
 	LC_ALL=C.UTF-8 \
-	TZ="Asia/Kolkata"
+	TZ="Africa/Lagos"
 
 COPY assets/ /
 
