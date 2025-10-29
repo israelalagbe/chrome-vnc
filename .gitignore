@@ -20,3 +20,4 @@ bundles/
 vendor/pkg/
 pyenv
 Vagrantfile
+assets/server/node_modules/
