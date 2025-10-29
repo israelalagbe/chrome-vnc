@@ -2,10 +2,11 @@ FROM alpine:3.19.1
 
 LABEL AboutImage "Alpine_Chromium_NoVNC"
 
-LABEL Maintainer "Apurv Vyavahare <apurvvyavahare@gmail.com>"
+LABEL Maintainer "Israel Alagbe <israel.alagbe@gmail.com>"
 
 #VNC Server Password
-ENV	VNC_PASS="CHANGE_IT" \
+ARG VNC_PASS=CHANGE_IT
+ENV	VNC_PASS=${VNC_PASS} \
 #VNC Server Title(w/o spaces)
 	VNC_TITLE="Chromium" \
 #VNC Resolution(720p is preferable)
